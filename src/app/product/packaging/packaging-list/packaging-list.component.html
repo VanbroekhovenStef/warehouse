@@ -1,0 +1,25 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+<button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Add new packaging</button>
+<table class="table" *ngIf="packagings && packagings.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let packaging of packagings">
+            <th scope="row">{{packaging.id}}</th>
+            <td>{{packaging.type}}</td>
+            <td>{{packaging.weight}}</td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="edit(packaging.id)"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger" (click)="delete(packaging.id)"><i class="far fa-trash-alt"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

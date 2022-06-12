@@ -1,0 +1,23 @@
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+</div>
+<form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+    <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" id="type" name="type" placeholder="Type" [(ngModel)]="packaging.type"
+                #type="ngModel" required>
+        <div [hidden]="type.valid || type.pristine" class="alert alert-danger">Type is required</div>
+    </div>
+    <div class="form-group">
+        <label for="weight">Weight</label>
+        <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight" [(ngModel)]="packaging.weight"
+                #weight="ngModel" required>
+        <div [hidden]="weight.valid || weight.pristine" class="alert alert-danger">Weight is required</div>
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit">Save</button>
+<!-- 
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!packagingForm.form.valid || isSubmitted">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!packagingForm.form.valid || isSubmitted">Save</button> -->
+</form>
+
