@@ -10,13 +10,13 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { 
   }
 
-  // getProducts() : Observable<Product[]> {
-  //   return this.httpClient.get<Product[]>("http://localhost:3000/products?_expand=user&_expand=item&_expand=packaging");
-  // }
-  
   getProducts() : Observable<Product[]> {
-    return this.httpClient.get<Product[]>("https://localhost:44306/api/products");
+    return this.httpClient.get<Product[]>("http://localhost:3000/products?_expand=user&_expand=item&_expand=packaging");
   }
+
+  // getProducts() : Observable<Product[]> {
+  //   return this.httpClient.get<Product[]>("https://localhost:44306/api/products");
+  // }
 
   getProductById(id: number): Observable<Product> {
     return this.httpClient.get<Product>("http://localhost:3000/products/" + id)

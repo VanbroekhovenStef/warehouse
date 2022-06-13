@@ -20,8 +20,7 @@ export class AuthService {
     if (this.isLoggedIn()){
       return { id : parseInt(localStorage.getItem('id') ?? '0') ,
         email: localStorage.getItem('email') ?? '', password: '',
-        token: this.getToken(),
-        role: ''  };
+        token: this.getToken()  };
     } else {
       return null;
     }

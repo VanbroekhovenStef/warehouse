@@ -15,7 +15,7 @@ import { ProductService } from '../product.service';
 })
 export class ProductComponent implements OnInit {
   packaging: Packaging = { id: 0, type: "", weight: 0 };
-  user: User = { id: 0, email: '', password: '', token: '', role: '' };
+  user: User = { id: 0, email: '', password: '', token: '' };
   item: Item = { id: 0, name: '' }
 
   @Input() product: Product = { id: 0, amountInStock: 0, userId: 0, packagingId: 0, itemId: 0, packaging: this.packaging, user: this.user, item: this.item }

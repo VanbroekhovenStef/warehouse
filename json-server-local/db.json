@@ -80,21 +80,18 @@
   "users": [
     {
       "email": "admin@mail.com",
-      "role": "Admin",
       "password": "$2a$10$LYX/k7fmLj5ELV.tk2UPRufhfJdPaj/WrFcLcEgrk7iz7/ubDdziG",
       "id": 1
     },
     {
       "email": "borealis@customer.com",
       "password": "test",
-      "id": 2,
-      "role": "Customer"
+      "id": 2
     },
     {
       "email": "luc@warehouse.com",
       "password": "test",
-      "id": 3,
-      "role": "Warehouse"
+      "id": 3
     }
   ],
   "products": [
