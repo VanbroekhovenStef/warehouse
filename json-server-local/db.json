@@ -81,18 +81,18 @@
     {
       "email": "admin@mail.com",
       "role": "Admin",
-      "password": "$2a$10$LYX/k7fmLj5ELV.tk2UPRufhfJdPaj/WrFcLcEgrk7iz7/ubDdziG",
+      "password": "$2a$12$nCroaaN/HNMJjklDvg6rAuxigMhGbg7dwJOQIWdPh9DL7QMaPe6BK",
       "id": 1
     },
     {
       "email": "borealis@customer.com",
-      "password": "test",
-      "id": 2,
-      "role": "Customer"
+      "role": "Customer",
+      "password": "$2a$12$nCroaaN/HNMJjklDvg6rAuxigMhGbg7dwJOQIWdPh9DL7QMaPe6BK",
+      "id": 2
     },
     {
       "email": "luc@warehouse.com",
-      "password": "test",
+      "password": "$2a$12$nCroaaN/HNMJjklDvg6rAuxigMhGbg7dwJOQIWdPh9DL7QMaPe6BK",
       "id": 3,
       "role": "Warehouse"
     }
@@ -113,28 +113,27 @@
       "packagingId": 2
     }
   ],
-  "order": [
+  "orders": [
     {
       "id": 1,
-      "confirm": false,
-      "inOut": false,
       "addressId": 3,
       "userId": 2,
-      "orderPlaced": "11/06/2022"
+      "statusId": 1
     }
   ],
-  "orderlines": [
+  "orderlines": [],
+  "statuses": [
     {
-      "id": 1,
-      "amount": 10,
-      "orderId": 1,
-      "productId": 2
+      "name": "Created",
+      "id": 1
     },
     {
-      "id": 2,
-      "amount": 5,
-      "orderId": 1,
-      "productId": 1
+      "name": "Confirmed",
+      "id": 2
+    },
+    {
+      "name": "Processed",
+      "id": 3
     }
   ]
 }

@@ -44,6 +44,17 @@ export class AuthService {
   }
 
   isAdmin() {
+    let admin = localStorage.getItem('role');
+    return admin === 'Admin';
+  }
 
+  isWarehouse() {
+    let admin = localStorage.getItem('role');
+    return admin === 'Warehouse';
+  }
+
+  isCustomer() {
+    let admin = localStorage.getItem('role');
+    return admin === 'Customer';
   }
 }

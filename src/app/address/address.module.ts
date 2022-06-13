@@ -5,6 +5,8 @@ import { AddressService } from './address.service';
 import { SharedModule } from '../shared/shared.module';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SecurityInterceptor } from '../security/security.interceptor';
 
 
 
@@ -18,8 +20,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     ReactiveFormsModule
   ],
+  exports: [
+    AddressListComponent,
+    AddressFormComponent
+  ],
   providers: [
-    AddressService
+    AddressService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SecurityInterceptor,
+      multi: true
+    }
   ]
 })
 export class AddressModule { }

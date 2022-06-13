@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CountryListComponent } from './country-list/country-list.component';
-import { CountryFormComponent } from './country-form/country-form.component';
+import { StatusListComponent } from './status-list/status-list.component';
+import { StatusFormComponent } from './status-form/status-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CountryService } from './country.service';
+import { StatusService } from './status.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecurityInterceptor } from 'src/app/security/security.interceptor';
 
@@ -11,19 +11,15 @@ import { SecurityInterceptor } from 'src/app/security/security.interceptor';
 
 @NgModule({
   declarations: [
-    CountryListComponent,
-    CountryFormComponent
+    StatusListComponent,
+    StatusFormComponent
   ],
   imports: [
     CommonModule,
     SharedModule
   ],
-  exports: [
-    CountryListComponent,
-    CountryFormComponent
-  ],
   providers: [
-    CountryService,
+    StatusService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SecurityInterceptor,
@@ -31,4 +27,4 @@ import { SecurityInterceptor } from 'src/app/security/security.interceptor';
     }
   ]
 })
-export class CountryModule { }
+export class StatusModule { }

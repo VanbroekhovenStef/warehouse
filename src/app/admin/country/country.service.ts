@@ -14,6 +14,10 @@ export class CountryService {
     return this.httpClient.get<Country[]>("http://localhost:3000/countries");
   }
 
+  // getCountries(): Observable<Country[]> {
+  //   return this.httpClient.get<Country[]>("https://localhost:44306/api/countries");
+  // }
+
   getCountryById(id: number): Observable<Country> {
     return this.httpClient.get<Country>("http://localhost:3000/countries/" + id);
   }

@@ -4,6 +4,9 @@ import { CountryModule } from './country/country.module';
 import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { UserModule } from './user/user.module';
+import { StatusModule } from './status/status.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SecurityInterceptor } from '../security/security.interceptor';
 
 
 
@@ -15,11 +18,20 @@ import { UserModule } from './user/user.module';
     CountryModule,
     SharedModule,
     AdminRoutingModule,
-    UserModule
+    UserModule,
+    StatusModule
   ],
   exports: [
     CountryModule,
-    UserModule
+    UserModule,
+    StatusModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SecurityInterceptor,
+      multi: true
+    }
   ]
 })
 export class AdminModule { }

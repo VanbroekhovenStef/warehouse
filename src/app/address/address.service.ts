@@ -12,7 +12,7 @@ export class AddressService {
   constructor(private httpClient: HttpClient) { }
 
   getAddresses(): Observable<Address[]> {
-    return this.httpClient.get<Address[]>("http://localhost:3000/addresses");
+    return this.httpClient.get<Address[]>("http://localhost:3000/addresses?_expand=country");
   }
 
   getAddressById(id: number): Observable<Address> {

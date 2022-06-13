@@ -1,0 +1,28 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+  <button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Create new order</button>
+  <table class="table" *ngIf="orders && orders.length > 0">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Shipped to</th>
+      <th scope="col">Status</th>
+      <th scope="col">#Items</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+        <th scope="row">{{order.id}}</th>
+        <td>{{order.addressId}}</td>
+        <td>{{order.statusId}}</td>
+        <td>Aantal Items</td>
+        <td >
+        <button type="button" class="btn btn-success" (click)="edit(order.id)"><i class="fas fa-edit"></i></button>
+        <button type="button" class="btn btn-danger" (click)="delete(order.id)"><i class="far fa-trash-alt"></i></button>
+        <!-- <button *ngIf="isUnconfirmed(order) && authService.isWarehouse()" type="button" class="btn btn-primary" (click)="confirm(order.id)"><i class="fas fa-globe"></i></button> -->
+      </td>
+    </tr>
+    </tbody>
+  </table>

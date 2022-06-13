@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddressFormComponent } from './address/address-form/address-form.component';
 import { AddressListComponent } from './address/address-list/address-list.component';
 import { HomeComponent } from './home/home.component';
-import { OrderCreateComponent } from './order/order-create/order-create.component';
+import { OrderFormComponent } from './order/order-form/order-form.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
 import { AuthGuard } from './security/auth.guard';
 import { SecurityComponent } from './security/security/security.component';
 
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'logout', component: SecurityComponent},
   { path: 'address', component: AddressListComponent },
   { path: 'address/form', component: AddressFormComponent },
-  { path: 'order', component: OrderCreateComponent }
+  { path: 'order', component: OrderListComponent, canActivate: [AuthGuard] },
+  { path: 'neworder', component: OrderFormComponent, canActivate: [AuthGuard] },
+  { path: 'editorder/:id', component: OrderFormComponent, canActivate: [AuthGuard] }
 ];
 
 
