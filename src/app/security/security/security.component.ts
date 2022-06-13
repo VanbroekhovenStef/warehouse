@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { User } from '../user';
 
@@ -9,7 +10,7 @@ import { User } from '../user';
   styleUrls: ['./security.component.scss']
 })
 export class SecurityComponent implements OnInit {
-  user: User = {id: 0, email: '', password: '', token: ''};
+  user: User = {id: 0, email: '', password: '', token: '', role: '' };
 
   isSubmitted: boolean = false;
   errorMessage: string = '';
@@ -18,7 +19,12 @@ export class SecurityComponent implements OnInit {
   isRegister: boolean = false;
   isLogout: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  postUser$: Subscription = new Subscription();
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.isLogin = this.router.url === '/login';
+    this.isRegister = !this.isLogin;
+  }
 
   ngOnInit(): void {
     switch (this.router.url) {
@@ -49,18 +55,27 @@ export class SecurityComponent implements OnInit {
     if (this.isLogin) {
       this.authService.authenticate(this.user).subscribe(result => {
         this.errorMessage = '';
+        // save access token localstorage
         localStorage.setItem('token', result.accessToken);
         localStorage.setItem('id', result.user.id.toString());
         localStorage.setItem('email', result.user.email);
+        localStorage.setItem('role', result.user.role);
         this.router.navigate(['']);
       }, error => {
         this.errorMessage = 'Email/password not correct!';
         this.isSubmitted = false;
       });
-    } else {
-      alert('work in progress');
-      // Hier moet de register logica komen
+    } else if (this.isRegister) {
+      this.authService.register(this.user).subscribe(result => {
+        this.errorMessage = '';
+        this.router.navigate(['login'])
+      }, error => {
+        this.errorMessage = 'Something went wrong!';
+        this.isSubmitted = false;
+      })
     }
   }
+
+
 
 }

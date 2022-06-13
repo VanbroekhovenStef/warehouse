@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { User } from 'src/app/security/user';
+import { Item } from '../item/item';
+import { Packaging } from '../packaging/packaging';
+import { PackagingComponent } from '../packaging/packaging.component';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 
@@ -10,9 +14,13 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  @Input() product: Product = { id: 0, amountInStock: 0, userId: 0, packagingId: 0, itemId: 0 }
+  packaging: Packaging = { id: 0, type: "", weight: 0 };
+  user: User = { id: 0, email: '', password: '', token: '', role: '' };
+  item: Item = { id: 0, name: '' }
+
+  @Input() product: Product = { id: 0, amountInStock: 0, userId: 0, packagingId: 0, itemId: 0, packaging: this.packaging, user: this.user, item: this.item }
   
-  products: any = {};
+  products: Product[] = [];
   products$: Subscription = new Subscription();
   deleteProduct$: Subscription = new Subscription();
 
@@ -40,15 +48,15 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/product/form'], {state: {id: id, mode: 'edit'}});
   }
 
-  // delete(id: number) {
-  //   this.deleteProduct$ = this.productService.deleteProduct(id).subscribe(result => {
-  //     // all went well
-  //     this.getItems();
-  //   }, error => {
-  //     //error
-  //     this.errorMessage = error.message();
-  //   })
-  // }
+  delete(id: number) {
+    this.deleteProduct$ = this.productService.deleteProduct(id).subscribe(result => {
+      // all went well
+      this.getProducts();
+    }, error => {
+      //error
+      this.errorMessage = error.message();
+    })
+  }
 
   getProducts() {
     this.products$ = this.productService.getProducts().subscribe(result => this.products = result);

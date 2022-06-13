@@ -1,0 +1,20 @@
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+  </div>
+  <div class="alert alert-warning" role="warning">
+    <p>Form Status: {{ countryForm.status }}</p>
+    <p>{{ maxWeightChanges }}</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="countryForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" formControlName="name" minlength="2">
+    </div>
+    <div class="form-group">
+      <label for="maxWeight">Max Weight</label>
+      <input type="text" class="form-control" id="maxWeight" name="maxWeight" placeholder="Max Weight" formControlName="maxWeight" minlength="2">
+    </div>
+    
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!countryForm.valid || isSubmitted">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!countryForm.valid || isSubmitted">Save</button>
+  </form>

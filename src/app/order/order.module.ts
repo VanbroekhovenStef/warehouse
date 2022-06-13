@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrderComponent } from './order/order.component';
 import { SharedModule } from '../shared/shared.module';
+import { OrderCreateComponent } from './order-create/order-create.component';
 
 
 
 @NgModule({
   declarations: [
-    OrderComponent
+  
+    OrderCreateComponent
   ],
   imports: [
     CommonModule,

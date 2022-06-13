@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product/product.component';
 import { SharedModule } from '../shared/shared.module';
-import { ItemComponent } from './item/item.component';
-import { PackagingComponent } from './packaging/packaging.component';
 import { ProductService } from './product.service';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ItemModule } from './item/item.module';
 import { PackagingModule } from './packaging/packaging.module';
 import { ProductRoutingModule } from './product-routing.module';

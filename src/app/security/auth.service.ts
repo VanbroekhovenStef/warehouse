@@ -9,17 +9,19 @@ import { UserResponse } from './userResponse';
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
   getToken(): string {
     return localStorage.getItem('token') ?? '';
   }
 
   getUser(): User | null {
-    if(this.isLoggedIn()) {
-      return { id : parseInt(localStorage.getItem('id') ?? '0'),
+    if (this.isLoggedIn()){
+      return { id : parseInt(localStorage.getItem('id') ?? '0') ,
         email: localStorage.getItem('email') ?? '', password: '',
-        token: this.getToken()};
+        token: this.getToken(),
+        role: ''  };
     } else {
       return null;
     }
@@ -39,5 +41,9 @@ export class AuthService {
 
   register(user: User): Observable<UserResponse> {
     return this.httpClient.post<UserResponse>('http://localhost:3000/register', user);
+  }
+
+  isAdmin() {
+
   }
 }

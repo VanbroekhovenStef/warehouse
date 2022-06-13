@@ -1,0 +1,22 @@
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+</div>
+<div class="alert alert-warning" role="warning">
+    <p>Form Status: {{ addressForm.status }}</p>
+</div>
+<form (ngSubmit)="onSubmit()" [formGroup]="addressForm">
+    <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" class="form-control" id="street" name="street" placeholder="Street" formControlName="street" minlength="2">
+    </div>
+    <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="City" formControlName="city" minlength="2">
+    </div>
+    <div class="form-group">
+        <label for="countryId">Country</label>
+        <input type="text" class="form-control" id="countryId" name="countryId" placeholder="countryId" formControlName="countryId">
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!addressForm.valid || isSubmitted">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!addressForm.valid || isSubmitted">Save</button>
+</form>

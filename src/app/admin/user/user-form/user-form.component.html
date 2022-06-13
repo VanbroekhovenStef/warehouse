@@ -1,0 +1,22 @@
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
+    {{errorMessage}}
+  </div>
+  <div class="alert alert-warning" role="warning">
+    <p>Form Status: {{ userForm.status }}</p>
+  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" name="email" placeholder="Email" formControlName="email" minlength="2">
+    </div>
+    <div class="form-group">
+        <label for="role">Role</label>
+        <input type="text" class="form-control" id="role" name="role" placeholder="Role" formControlName="role" minlength="2">
+    </div>
+    <div class="form-group" hidden>
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" name="password" placeholder="Password" formControlName="password" minlength="2">
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!userForm.valid || isSubmitted">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!userForm.valid || isSubmitted">Save</button>
+  </form>

@@ -1,23 +1,28 @@
-<table class="table">
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+<button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Add new item</button>
+<table class="table" *ngIf="products && products.length > 0">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Name</th>
+            <th scope="col">Product</th>
             <th scope="col">Packaging</th>
             <th scope="col">Amount</th>
+            <th scope="col">Customer</th>
         </tr>
     </thead>
     <tbody>
-        <!-- <tr *ngFor="let product of (products$ | async)">
+        <tr *ngFor="let product of products">
             <th scope="row">{{product.id}}</th>
-            <td>{{product.itemId}}</td>
-            <td>{{product.packagingId}}</td>
-            <td>{{product.amountInStock}}</td> -->
-            <!-- <td><i *ngIf="st.active" class="fas fa-check"></i><i *ngIf="!st.active" class="fas fa-times"></i></td>
+            <td>{{product.item.name}}</td>
+            <td>{{product.packaging.type}}</td>
+            <td>{{product.user.email}}</td>
+            <td>{{product.amountInStock}}</td>
             <td>
-            <button type="button" class="btn btn-success" (click)="edit(st.id)"><i class="fas fa-edit"></i></button>
-            <button type="button" class="btn btn-danger" (click)="delete(st.id)"><i class="far fa-trash-alt"></i></button> -->
-            <!-- </td> -->
-        <!-- </tr> -->
+                <button type="button" class="btn btn-success" (click)="edit(product.id)"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-danger" (click)="delete(product.id)"><i class="far fa-trash-alt"></i></button>
+            </td>
+        </tr>
     </tbody>
 </table>

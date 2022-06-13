@@ -1,0 +1,27 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+  <button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Add new address</button>
+  <table class="table" *ngIf="addresses && addresses.length > 0">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Street</th>
+        <th scope="col">City</th>
+        <th scope="col">Country</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let address of addresses">
+        <th scope="row">{{address.id}}</th>
+        <td>{{address.street}}</td>
+        <td>{{address.city}}</td>
+        <td>{{address.countryId}}</td>
+        <td>
+            <button type="button" class="btn btn-success" (click)="edit(address.id)"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-danger" (click)="delete(address.id)"><i class="far fa-trash-alt"></i></button>
+        </td>
+    </tr>
+    </tbody>
+  </table>

@@ -29,12 +29,12 @@ export class ItemListComponent implements OnInit, OnDestroy {
 
   add() {
     // Navigate to form in add mode
-    this.router.navigate(['/item/form'], {state: {mode: 'add'}});
+    this.router.navigate(['/product/item/form'], {state: {mode: 'add'}});
   }
 
   edit(id: number) {
     // Navigate to form in edit mode
-    this.router.navigate(['/item/form'], {state: {id: id, mode: 'edit'}});
+    this.router.navigate(['/product/item/form'], {state: {id: id, mode: 'edit'}});
   }
 
   delete(id: number) {

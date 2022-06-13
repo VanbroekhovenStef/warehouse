@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { AddressModule } from './address/address.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserModule } from '@angular/platform-browser';
     OrderModule,
     AdminModule,
     HttpClientModule,
+    AddressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

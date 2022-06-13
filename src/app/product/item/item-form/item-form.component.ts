@@ -46,7 +46,7 @@ export class ItemFormComponent implements OnInit, OnDestroy {
     this.isSubmitted = true;
     if (this.isAdd) {
       this.postItem$ = this.itemService.postItem(this.item).subscribe(result => {
-        this.router.navigateByUrl("/item");
+        this.router.navigateByUrl("/product/item");
       },
       error => {
         this.errorMessage = error.message;
@@ -54,7 +54,7 @@ export class ItemFormComponent implements OnInit, OnDestroy {
     }
     if(this.isEdit) {
       this.putItem$ = this.itemService.putItem(this.itemId, this.item).subscribe(result => {
-        this.router.navigateByUrl("/item");
+        this.router.navigateByUrl("/product/item");
       },
       error => {
         this.errorMessage = error.message;

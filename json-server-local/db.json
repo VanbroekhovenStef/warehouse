@@ -1,9 +1,9 @@
 {
   "countries": [
     {
-      "id": 1,
       "name": "France",
-      "maxWeight": 40000
+      "maxWeight": "40000",
+      "id": 1
     },
     {
       "id": 2,
@@ -18,10 +18,10 @@
   ],
   "addresses": [
     {
-      "id": 1,
       "street": "Industrieweg 158",
       "city": "Beringen",
-      "countryId": 2
+      "countryId": "1",
+      "id": 1
     },
     {
       "id": 2,
@@ -34,6 +34,12 @@
       "street": "Bierstrasse 4",
       "city": "Neunkirchen",
       "countryId": 3
+    },
+    {
+      "street": "Bosbessenstraat 5",
+      "city": "Mol",
+      "countryId": "2",
+      "id": 4
     }
   ],
   "packagings": [
@@ -73,28 +79,22 @@
   ],
   "users": [
     {
-      "id": 1,
-      "userName": "Stef Vanbroekhoven",
-      "email": "stef.vanbroekhoven@admin.com",
-      "password": "$2a$10$NcqZhDfM.h/Knlasn5djT.e514sqotWmUsBYdq/AfoQGZtRTfiY72",
-      "addressId": 2,
-      "role": "admin"
+      "email": "admin@mail.com",
+      "role": "Admin",
+      "password": "$2a$10$LYX/k7fmLj5ELV.tk2UPRufhfJdPaj/WrFcLcEgrk7iz7/ubDdziG",
+      "id": 1
     },
     {
-      "id": 2,
-      "userName": "Borealis",
       "email": "borealis@customer.com",
       "password": "test",
-      "addressId": 3,
-      "role": "customer"
+      "id": 2,
+      "role": "Customer"
     },
     {
-      "id": 3,
-      "userName": "Luc",
       "email": "luc@warehouse.com",
       "password": "test",
-      "addressId": 1,
-      "role": "warehouse"
+      "id": 3,
+      "role": "Warehouse"
     }
   ],
   "products": [

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/security/user';
+import { Item } from '../item/item';
+import { Packaging } from '../packaging/packaging';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 
@@ -10,7 +13,11 @@ import { ProductService } from '../product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product: Product = { id: 0, amountInStock: 0, userId: 0, itemId: 0, packagingId: 0 }
+  packaging: Packaging = { id: 0, type: "", weight: 0 };
+  user: User = { id: 0, email: '', password: '', token: '', role: '' };
+  item: Item = { id: 0, name: '' }
+
+  @Input() product: Product = { id: 0, amountInStock: 0, userId: 0, packagingId: 0, itemId: 0, packaging: this.packaging, user: this.user, item: this.item }
 
   constructor(private productService: ProductService, private route: ActivatedRoute) { }
 

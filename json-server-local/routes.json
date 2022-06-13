@@ -1,5 +1,6 @@
 {
-    "users": 600,
-    "categories": 660,
-    "statuses": 660
-  }
+  "users": 660,
+  "products": 660,
+  "items": 660,
+  "packagings": 660
+}
