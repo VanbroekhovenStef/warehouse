@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
+import { AuthService } from '../security/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +13,13 @@ export class HomeComponent implements OnInit {
 
   products$: Observable<Product[]> = new Observable<Product[]>();
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.products$ = this.productService.getProducts();
-
-    // Onderstaande is optioneel voor de log
-    let data = this.productService.getProducts();
-    console.log("dit is de log", data);
+    let token = this.authService.getToken();
+    let role = localStorage.getItem('role');
+    console.log(token);
+    console.log(role);
   }
 
 }

@@ -47,6 +47,7 @@ export class CountryFormComponent implements OnInit {
   ngOnInit(): void {
     this.onChanges();
   }
+  
 
   ngOnDestroy(): void {
     this.country$.unsubscribe();
@@ -56,6 +57,7 @@ export class CountryFormComponent implements OnInit {
   
   onSubmit(): void {
     this.isSubmitted = true;
+    console.log(this.countryForm.value);
     if (this.isAdd) {
       this.postCountry$ = this.countryService.postCountry(this.countryForm.value).subscribe(result => {
                 //all went well

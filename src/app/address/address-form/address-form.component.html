@@ -15,8 +15,11 @@
     </div>
     <div class="form-group">
         <label for="countryId">Country</label>
-        <input type="text" class="form-control" id="countryId" name="countryId" placeholder="countryId" formControlName="countryId">
-    </div>
+        <select class="custom-select" formControlName="countryId" id="countryId">
+          <option value="" disabled>Choose the country</option>
+          <option *ngFor="let country of countries" [ngValue]="country.id">{{country.name}}</option>
+        </select>
+      </div>
     <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!addressForm.valid || isSubmitted">Add</button>
     <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!addressForm.valid || isSubmitted">Save</button>
 </form>

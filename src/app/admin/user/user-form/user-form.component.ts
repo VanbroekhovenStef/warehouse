@@ -26,8 +26,7 @@ export class UserFormComponent implements OnInit {
   // reactive form
   userForm = new FormGroup({
     email: new FormControl(''),
-    role: new FormControl(''),
-    password: new FormControl('')
+    role: new FormControl('')
   });
 
   constructor(private router: Router, private userService: UserService) {
@@ -40,7 +39,6 @@ export class UserFormComponent implements OnInit {
         this.userForm.setValue({
           email: result.email,
           role: result.role,
-          password: result.password
         });
       });
     }

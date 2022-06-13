@@ -10,7 +10,7 @@ import { User } from '../user';
   styleUrls: ['./security.component.scss']
 })
 export class SecurityComponent implements OnInit {
-  user: User = {id: 0, email: '', password: '', token: '', role: '' };
+  user: User = { id: 0, email: '', password: '', token: '', role: '' };
 
   isSubmitted: boolean = false;
   errorMessage: string = '';
@@ -56,10 +56,10 @@ export class SecurityComponent implements OnInit {
       this.authService.authenticate(this.user).subscribe(result => {
         this.errorMessage = '';
         // save access token localstorage
-        localStorage.setItem('token', result.accessToken);
-        localStorage.setItem('id', result.user.id.toString());
-        localStorage.setItem('email', result.user.email);
-        localStorage.setItem('role', result.user.role);
+        localStorage.setItem('token', result.token);
+        localStorage.setItem('id', result.id.toString());
+        localStorage.setItem('email', result.email);
+        localStorage.setItem('role', result.role);
         this.router.navigate(['']);
       }, error => {
         this.errorMessage = 'Email/password not correct!';

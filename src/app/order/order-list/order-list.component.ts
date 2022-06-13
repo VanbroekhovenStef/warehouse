@@ -6,7 +6,6 @@ import { Country } from 'src/app/admin/country/country';
 import { AuthService } from 'src/app/security/auth.service';
 import { Order } from '../order';
 import { OrderService } from '../order.service';
-import { StatusEnum } from '../status-enum';
 
 @Component({
   selector: 'app-order-list',
@@ -62,7 +61,7 @@ export class OrderListComponent implements OnInit, OnDestroy {
   }
 
   isUnConfirmed(order: Order): boolean {
-    return order.statusId !== StatusEnum.PROCESSED;
+    return order.confirm;
   }
 
   confirm(orderId: number): void {

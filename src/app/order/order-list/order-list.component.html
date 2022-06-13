@@ -16,7 +16,7 @@
     <tr *ngFor="let order of orders">
         <th scope="row">{{order.id}}</th>
         <td>{{order.addressId}}</td>
-        <td>{{order.statusId}}</td>
+        <td>{{order.confirm}}</td>
         <td>Aantal Items</td>
         <td >
         <button type="button" class="btn btn-success" (click)="edit(order.id)"><i class="fas fa-edit"></i></button>

@@ -118,7 +118,7 @@
       "id": 1,
       "addressId": 3,
       "userId": 2,
-      "statusId": 1
+      "confirm": false
     }
   ],
   "orderlines": [],

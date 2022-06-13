@@ -36,7 +36,7 @@ export class StatusFormComponent implements OnInit, OnDestroy {
     if (this.statusId != null && this.statusId > 0) {
       this.status$ = this.statusService.getStatusById(this.statusId).subscribe(result => {
         this.statusForm.setValue({
-          name: result.name,
+          name: result.name
         });
       });
     }

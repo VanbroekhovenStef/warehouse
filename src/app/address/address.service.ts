@@ -12,28 +12,22 @@ export class AddressService {
   constructor(private httpClient: HttpClient) { }
 
   getAddresses(): Observable<Address[]> {
-    return this.httpClient.get<Address[]>("http://localhost:3000/addresses?_expand=country");
+    return this.httpClient.get<Address[]>("https://localhost:44306/api/addresses");
   }
 
   getAddressById(id: number): Observable<Address> {
-    return this.httpClient.get<Address>("http://localhost:3000/addresses/" + id);
+    return this.httpClient.get<Address>("https://localhost:44306/api/addresses/" + id);
   }
 
   postAddress(address: Address): Observable<Address> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-    return this.httpClient.post<Address>("http://localhost:3000/addresses", address, {headers: headers});
+    return this.httpClient.post<Address>("https://localhost:44306/api/addresses", address);
   }
 
   putAddress(id:number, address: Address): Observable<Address> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-    return this.httpClient.put<Address>("http://localhost:3000/addresses/" + id, address, {headers: headers});
+    return this.httpClient.put<Address>("https://localhost:44306/api/addresses/" + id, address);
   }
 
   deleteAddress(id: number): Observable<Address> {
-    return this.httpClient.delete<Address>("http://localhost:3000/addresses/" + id);
+    return this.httpClient.delete<Address>("https://localhost:44306/api/addresses/" + id);
   }
 }

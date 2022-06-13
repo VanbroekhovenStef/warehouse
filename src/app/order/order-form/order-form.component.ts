@@ -9,7 +9,6 @@ import { Status } from 'src/app/admin/status/status';
 import { StatusService } from 'src/app/admin/status/status.service';
 import { AuthService } from 'src/app/security/auth.service';
 import { OrderService } from '../order.service';
-import { StatusEnum } from '../status-enum';
 
 @Component({
   selector: 'app-order-form',
@@ -35,7 +34,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     id: new FormControl(''),
     addressId: new FormControl(''),
     userId: new FormControl(''),
-    statusId: new FormControl(StatusEnum.CREATED), // default status is draft
+    confirm: new FormControl(false)
   });
 
   // addresses select
@@ -61,10 +60,9 @@ export class OrderFormComponent implements OnInit, OnDestroy {
         this.orderId = +id;
         this.orderService.getOrderById(+id).subscribe(result => {
           this.orderForm.patchValue({
-            id: result.id,
             userId: result.userId,
             addressId: result.addressId,
-            statusId: result.statusId,
+            confirm: result.confirm
           });
         });
       }
@@ -84,7 +82,8 @@ export class OrderFormComponent implements OnInit, OnDestroy {
     const user = this.authService.getUser() ?? null;
     if (user !== null) {
       this.orderForm.patchValue({
-        userId: user.id
+        userId: user.id,
+        confirm: false
       });
     }
   }

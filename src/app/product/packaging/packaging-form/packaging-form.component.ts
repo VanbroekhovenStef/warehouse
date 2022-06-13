@@ -47,7 +47,7 @@ export class PackagingFormComponent implements OnInit, OnDestroy {
     this.isSubmitted = true;
     if (this.isAdd) {
       this.postPackaging$ = this.packagingService.postPackaging(this.packaging).subscribe(result => {
-        this.router.navigateByUrl("/packaging");
+        this.router.navigateByUrl("/product/packaging");
       },
       error => {
         this.errorMessage = error.message;
@@ -55,7 +55,7 @@ export class PackagingFormComponent implements OnInit, OnDestroy {
     }
     if(this.isEdit) {
       this.putPackaging$ = this.packagingService.putPackaging(this.packagingId, this.packaging).subscribe(result => {
-        this.router.navigateByUrl("/packaging");
+        this.router.navigateByUrl("/product/packaging");
       },
       error => {
         this.errorMessage = error.message;

@@ -1,6 +1,7 @@
-import {User} from './user';
-
 export interface UserResponse {
-    accessToken: string;
-    user: User;
+    id: number,
+    email: string,
+    password?: string,
+    role: string,
+    token: string
 }

@@ -2,5 +2,5 @@ export interface User {
     id: number;
     email: string;
     role: string;  
-    password: string;  
+    password?: string;  
 }

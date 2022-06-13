@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Country } from 'src/app/admin/country/country';
+import { CountryService } from 'src/app/admin/country/country.service';
 import { AddressService } from '../address.service';
 
 @Component({
@@ -22,6 +24,7 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   address$: Subscription = new Subscription();
   postAddress$: Subscription = new Subscription();
   putAddress$: Subscription = new Subscription();
+  countries$: Subscription = new Subscription();
 
   // reactive form
   addressForm = new FormGroup({
@@ -30,7 +33,9 @@ export class AddressFormComponent implements OnInit, OnDestroy {
     countryId: new FormControl('')
   });
 
-  constructor(private router: Router, private addressService: AddressService) {
+  countries: Country[] = [];
+
+  constructor(private router: Router, private addressService: AddressService, private countryService: CountryService) {
     this.isAdd = this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
     this.isEdit = this.router.getCurrentNavigation()?.extras.state?.mode === 'edit';
     this.addressId = +this.router.getCurrentNavigation()?.extras.state?.id;
@@ -47,6 +52,9 @@ export class AddressFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.countries$ = this.countryService.getCountries().subscribe(result => {
+      this.countries = result;
+    })
   }
 
   ngOnDestroy(): void {

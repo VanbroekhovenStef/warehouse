@@ -10,30 +10,22 @@ export class PackagingService {
 
   constructor(private httpClient : HttpClient) { }
     getPackagings() : Observable<Packaging[]> {
-      return this.httpClient.get<Packaging[]>("http://localhost:3000/packagings");
+      return this.httpClient.get<Packaging[]>("https://localhost:44306/api/packagings");
     }
 
     getPackagingById(id: number): Observable<Packaging> {
-      return this.httpClient.get<Packaging>("http://localhost:3000/packagings/" + id)
+      return this.httpClient.get<Packaging>("https://localhost:44306/api/packagings/" + id)
     }
 
     postPackaging(packaging: Packaging): Observable<Packaging> {
-      // Deze code is niet nodig wanneer je met een echte api werkt!!
-      let headers = new HttpHeaders();
-      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-      return this.httpClient.post<Packaging>("http://localhost:3000/packagings/", packaging, {headers: headers});
+      return this.httpClient.post<Packaging>("https://localhost:44306/api/packagings/", packaging);
     }
 
     putPackaging(id: number, packaging: Packaging): Observable<Packaging> {
-      // Deze code is niet nodig wanneer je met een echte api werkt!!
-      let headers = new HttpHeaders();
-      headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-      return this.httpClient.put<Packaging>("http://localhost:3000/packagings/" + id, packaging, {headers: headers});
+      return this.httpClient.put<Packaging>("https://localhost:44306/api/packagings/" + id, packaging);
     }
 
     deletePackaging(id: number): Observable<Packaging> {
-      return this.httpClient.delete<Packaging>("http://localhost:3000/packagings/" + id);
+      return this.httpClient.delete<Packaging>("https://localhost:44306/api/packagings/" + id);
     }
 }
