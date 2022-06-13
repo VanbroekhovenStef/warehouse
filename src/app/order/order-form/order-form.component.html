@@ -2,13 +2,13 @@
 <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
   {{errorMessage}}
 </div>
-<!--<div class="alert alert-warning" role="warning">
-  <p>Form Status: {{ articleForm.status }}</p>
-</div>-->
+<div class="alert alert-warning" role="warning">
+  <p>Form Status: {{ orderForm.status }}</p>
+</div>
 <form (ngSubmit)="onSubmit()" [formGroup]="orderForm">
   <div class="form-group">
     <label for="addressId">Address</label>
-    <select class="custom-select" formControlName="addressId">
+    <select class="custom-select" formControlName="addressId" id="addressId">
       <option value="" disabled>Choose the address</option>
       <option *ngFor="let address of addresses" [ngValue]="address.id">{{address.street}}, {{address.city}}</option>
     </select>
