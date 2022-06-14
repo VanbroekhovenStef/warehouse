@@ -2,11 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { subscribeOn } from 'rxjs/operators';
 import { Address } from 'src/app/address/address';
 import { AddressService } from 'src/app/address/address.service';
-import { Status } from 'src/app/admin/status/status';
-import { StatusService } from 'src/app/admin/status/status.service';
 import { AuthService } from 'src/app/security/auth.service';
 import { OrderService } from '../order.service';
 
@@ -24,6 +21,7 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   isSubmitted: boolean = false;
   errorMessage: string = '';
 
+  order$: Subscription = new Subscription();
   postOrder$: Subscription = new Subscription();
   putOrder$: Subscription = new Subscription();
   addresses$: Subscription = new Subscription();
@@ -31,7 +29,6 @@ export class OrderFormComponent implements OnInit, OnDestroy {
 
 // reactive form
   orderForm = new FormGroup({
-    id: new FormControl(''),
     addressId: new FormControl(''),
     userId: new FormControl(''),
     confirm: new FormControl(false)
@@ -40,45 +37,27 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   // addresses select
   addresses: Address[] = [];
 
-  // status
-  statuses: Status[] = [];
+  constructor(private router: Router, private orderService: OrderService, private addressService: AddressService, private authService: AuthService) {
+    this.isAdd = this.router.getCurrentNavigation()?.extras.state?.mode === 'add';
+    this.isEdit = this.router.getCurrentNavigation()?.extras.state?.mode === 'edit';
+    this.orderId = +this.router.getCurrentNavigation()?.extras.state?.id;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              private orderService: OrderService,
-              private addressService: AddressService,
-              private statusService: StatusService,
-              private authService: AuthService) {
-    this.isAdd = this.router.url === '/neworder';
-    this.isEdit = !this.isAdd;
+    if (this.orderId != null && this.orderId > 0) {
+      this.order$ = this.orderService.getOrderById(this.orderId).subscribe(result => {
+        this.orderForm.setValue({
+          addressId: result.addressId,
+          userId: result.userId,
+          confirm: result.confirm
+        });
+      });
+    }
   }
 
   ngOnInit(): void {
-    if (this.isEdit) {
-      const id = this.route.snapshot.paramMap.get('id');
-      if (id != null) {
-        this.orderId = +id;
-        this.orderService.getOrderById(+id).subscribe(result => {
-          this.orderForm.patchValue({
-            userId: result.userId,
-            addressId: result.addressId,
-            confirm: result.confirm
-          });
-        });
-      }
-    }
-
-    // get categories
     this.addresses$ = this.addressService.getAddresses().subscribe(result => {
       this.addresses = result;
     });
 
-    // get statuses
-    this.statuses$ = this.statusService.getStatuses().subscribe(result => {
-      this.statuses = result;
-    });
-
-    // set user in form (= author)
     const user = this.authService.getUser() ?? null;
     if (user !== null) {
       this.orderForm.patchValue({
@@ -89,43 +68,31 @@ export class OrderFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.order$.unsubscribe();
     this.postOrder$.unsubscribe();
-    this.addresses$.unsubscribe();
-    this.statuses$.unsubscribe();
     this.putOrder$.unsubscribe();
+    this.addresses$.unsubscribe();
   }
-
-  getTitle(): string {
-    if (this.isAdd) {
-      return 'Add new order';
-    } else {
-      return 'Edit order';
-    }
-  }
-
+  
   onSubmit(): void {
     this.isSubmitted = true;
-  }
-
-  submitData(): void {
     if (this.isAdd) {
-      //Add
       this.postOrder$ = this.orderService.postOrder(this.orderForm.value).subscribe(result => {
-          this.router.navigateByUrl('/');
-        },
-        error => {
-          this.isSubmitted = false;
-          this.errorMessage = error.message;
-        });
-    } else {
-      //edit
+                //all went well
+                this.router.navigateByUrl("/order");
+              },
+              error => {
+                this.errorMessage = error.message;
+              });
+    }
+    if (this.isEdit) {
       this.putOrder$ = this.orderService.putOrder(this.orderId, this.orderForm.value).subscribe(result => {
-          this.router.navigateByUrl('/');
-        },
-        error => {
-          this.isSubmitted = false;
-          this.errorMessage = error.message;
-        });
+                //all went well
+                this.router.navigateByUrl("/order");
+              },
+              error => {
+                this.errorMessage = error.message;
+              });
     }
   }
 

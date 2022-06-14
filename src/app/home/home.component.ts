@@ -16,10 +16,6 @@ export class HomeComponent implements OnInit {
   constructor(private productService: ProductService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    let token = this.authService.getToken();
-    let role = localStorage.getItem('role');
-    console.log(token);
-    console.log(role);
   }
 
 }

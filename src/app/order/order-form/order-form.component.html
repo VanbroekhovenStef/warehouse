@@ -1,5 +1,4 @@
-<h1>{{getTitle()}}</h1>
-<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+<div class="alert alert-danger" role="alert" *ngIf="isSubmitted && errorMessage">
   {{errorMessage}}
 </div>
 <div class="alert alert-warning" role="warning">
@@ -13,10 +12,7 @@
       <option *ngFor="let address of addresses" [ngValue]="address.id">{{address.street}}, {{address.city}}</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!orderForm.valid || isSubmitted">
-    Add new order
-  </button>
-  <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!orderForm.valid || isSubmitted">Save
-  </button>
+  <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!orderForm.valid || isSubmitted">Add</button>
+  <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!orderForm.valid || isSubmitted">Save</button>
 </form>
 

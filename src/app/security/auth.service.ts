@@ -29,6 +29,7 @@ export class AuthService {
 
   deleteToken(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
   }
 
   isLoggedIn(): boolean {

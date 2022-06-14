@@ -18,8 +18,7 @@ const routes: Routes = [
   { path: 'address', component: AddressListComponent },
   { path: 'address/form', component: AddressFormComponent },
   { path: 'order', component: OrderListComponent, canActivate: [AuthGuard] },
-  { path: 'neworder', component: OrderFormComponent, canActivate: [AuthGuard] },
-  { path: 'editorder/:id', component: OrderFormComponent, canActivate: [AuthGuard] }
+  { path: 'order/form', component: OrderFormComponent, canActivate: [AuthGuard] }
 ];
 
 

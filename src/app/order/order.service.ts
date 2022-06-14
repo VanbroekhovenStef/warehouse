@@ -16,26 +16,20 @@ export class OrderService {
     return this.httpClient.get<Order[]>("https://localhost:44306/api/orders");
   }
 
-  getOrdersFromUser(): Observable<Order[]> {
-    return this.httpClient.get<Order[]>('https://localhost:44306/api/orders?userId=' + this.authService.getUser()?.id + '&_expand=address&_expand=user&_embed=orderlines');
-  }
+  // getOrdersFromUser(): Observable<Order[]> {
+  //   return this.httpClient.get<Order[]>('https://localhost:44306/api/orders?userId=' + this.authService.getUser()?.id + '&_expand=address&_expand=user&_embed=orderlines');
+  // }
 
   getOrderById(id: number): Observable<Order> {
     return this.httpClient.get<Order>("https://localhost:44306/api/orders/" + id);
   }
 
   postOrder(order: Order): Observable<Order> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-    return this.httpClient.post<Order>("https://localhost:44306/api/orders", order, {headers: headers});
+    return this.httpClient.post<Order>("https://localhost:44306/api/orders", order);
   }
 
   putOrder(id:number, order: Order): Observable<Order> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-
-    return this.httpClient.put<Order>("https://localhost:44306/api/orders/" + id, order, {headers: headers});
+    return this.httpClient.put<Order>("https://localhost:44306/api/orders/" + id, order);
   }
 
   deleteOrder(id: number): Observable<Order> {

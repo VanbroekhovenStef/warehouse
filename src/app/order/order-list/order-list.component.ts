@@ -14,17 +14,13 @@ import { OrderService } from '../order.service';
 })
 export class OrderListComponent implements OnInit, OnDestroy {
 
-  country: Country = { id: 0, name: "", maxWeight: 0}
-
-  @Input() address: Address = { id: 0, street: "", city:"", countryId: 0, country: this.country }
-
   orders: Order[] = [];
   orders$: Subscription = new Subscription();
   deleteOrder$: Subscription = new Subscription();
 
   errorMessage: string = '';
 
-  constructor(private orderService: OrderService, private router: Router, private authService: AuthService) {
+  constructor(private orderService: OrderService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -38,12 +34,12 @@ export class OrderListComponent implements OnInit, OnDestroy {
 
   add() {
     //Navigate to form in add mode
-    this.router.navigate(['neworder']);
+    this.router.navigate(['/order/form'], {state: {mode: 'add'}});
   }
 
   edit(id: number) {
     //Navigate to form in edit mode
-    this.router.navigate(['editorder/' + id]);
+    this.router.navigate(['/order/form'], {state: {id: id, mode: 'edit'}});
   }
 
   delete(id: number) {
@@ -57,7 +53,7 @@ export class OrderListComponent implements OnInit, OnDestroy {
   }
 
   getOrders() {
-    this.orders$ = this.orderService.getOrdersFromUser().subscribe(result => this.orders = result);
+    this.orders$ = this.orderService.getOrders().subscribe(result => this.orders = result);
   }
 
   isUnConfirmed(order: Order): boolean {
