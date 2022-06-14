@@ -17,7 +17,7 @@
         <th scope="row">{{address.id}}</th>
         <td>{{address.street}}</td>
         <td>{{address.city}}</td>
-        <td>{{address.countryId}}</td>
+        <td>{{address.country.name}}</td>
         <td>
             <button type="button" class="btn btn-success" (click)="edit(address.id)"><i class="fas fa-edit"></i></button>
             <button type="button" class="btn btn-danger" (click)="delete(address.id)"><i class="far fa-trash-alt"></i></button>

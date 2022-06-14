@@ -15,8 +15,9 @@
     <tbody>
     <tr *ngFor="let order of orders">
         <th scope="row">{{order.id}}</th>
-        <td>{{order.addressId}}</td>
-        <td>{{order.confirm}}</td>
+        <td>{{order.address.street}}, {{order.address.city}}, {{order.address.country.name}}</td>
+        <td *ngIf="order.confirm">PROCESSED</td>
+        <td *ngIf="!order.confirm">CREATED</td>
         <td>Aantal Items</td>
         <td >
           <button type="button" class="btn btn-success" (click)="edit(order.id)"><i class="fas fa-edit"></i></button>
