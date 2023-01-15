@@ -7,10 +7,11 @@ Utopia is comprised of three main sections:
 ## Game engine
 Utopia 2.0 is made in the Unity game engine. This platform allows the programmer to use lots of features that help in creating a game, which normal web development platforms do not offer.
 
-Data is stored in a microservices oriented 
+To load the game, you will need to install Unity.
 
 ## Back-end
 For documentation of the back-end we refer to the `edge-service`, where all information about the microservice architecture is gathered. Information on the different services used, how to run the services locally and ways of testing are mentioned there.
-[EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice):
+
+[EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice)
 
 ## Web application
