@@ -10,5 +10,7 @@ Utopia 2.0 is made in the Unity game engine. This platform allows the programmer
 Data is stored in a microservices oriented 
 
 ## Back-end
+For documentation of the back-end we refer to the `edge-service`, where all information about the microservice architecture is gathered. Information on the different services used, how to run the services locally and ways of testing are mentioned there.
+[EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice):
 
 ## Web application
