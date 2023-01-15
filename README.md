@@ -1,27 +1,14 @@
-# Warehouse
+# Utopia 2.0
+Utopia is comprised of three main sections:
+- The game itself is made in the Unity game engine
+- A microservices back-end takes care of all the data storage and processing
+- A web application that hosts the Unity game and allows some extra functionality
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+## Game engine
+Utopia 2.0 is made in the Unity game engine. This platform allows the programmer to use lots of features that help in creating a game, which normal web development platforms do not offer.
 
-## Development server
+Data is stored in a microservices oriented 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Back-end
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Web application
