@@ -1,5 +1,7 @@
 # Utopia 2.0
-Welcome to Utopia 2.0! In this repository, you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting the students get to know the educative programs within Thomas More. Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a 
+Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. 
+
+Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest.
 
 ![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
@@ -45,7 +47,7 @@ A handful of tutorials were followed to get to know the Unity game engine. Below
 
 - [Ruby's Adventure](https://learn.unity.com/project/ruby-s-2d-rpg)
   - This tutorial is ideal for building experience in Unity for Isometric 2D development. Basic concepts are shown while building this game, leaving you with an overall understanding of the platform after you've finished it.
-
+- Other
 
 
 ## Back-end
@@ -54,8 +56,8 @@ For documentation of the back-end we refer to the `edge-service`, where all info
 [EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice)
 
 ## Web application
-A Java application built in the Spring Boot framework is used to host the game. The Unity project is hosted in a WebGL format, which allows us to implement it on a web page using an iframe. 
+A Java web application built in the Spring Boot framework is used to host the game. The Unity project is built in a WebGL format, which allows us to run it on a web page using an iframe. 
 
 Besides hosting the game, the web application can also gather feedback from the user after playing the game. Different aspects of the game can be judged in a feedback form, and also a general score can be given.
 
-Lastly, the game gathers information about the user interactions while playing. The amount of visits per station are recorded and displayed using graphs made in Qlik sense. The graphs are loaded on a separate page `/analyse` using iframes. Data shown here can be useful to generate insights in the popularity of each education.
+Lastly, the game gathers information about the user interactions while playing. This information is displayed using graphs made in Qlik sense. The graphs are loaded on a separate page `/analyse` using iframes. Data shown here can be useful to generate insights in the popularity of each education.
