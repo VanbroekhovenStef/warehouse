@@ -1,5 +1,6 @@
 # Utopia 2.0
 Welcome to Utopia 2.0! In this repository, you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting the students get to know the educative programs within Thomas More.
+
 ![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
 Utopia is comprised of three main sections:
