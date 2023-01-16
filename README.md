@@ -5,12 +5,12 @@ Utopia is represented as an underground network, in which the stations each repr
 
 ![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
-Utopia is comprised of three main sections:
+Utopia is comprised of three main programs:
 - The game itself is made in the Unity game engine.
 - A microservices back-end takes care of all the data storage and processing.
-- A web application that hosts the Unity game and allows some extra functionality for analytics and gathering feedback.
+- A web application that hosts the game and allows some extra functionality for analytics and gathering feedback.
 
-## Game engine
+## Unity
 Utopia 2.0 is made in the Unity game engine. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for Isometric 2D development. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap).
 
 ### Installation
@@ -53,7 +53,7 @@ A handful of tutorials were followed to get to know the Unity game engine. Below
 ## Back-end
 For documentation of the back-end we refer to the `edge-service`, where all information about the microservice architecture is gathered. Information on the different services used, how to run the services locally and ways of testing are mentioned there.
 
-[EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice)
+Click [here](https://github.com/KevinVandeputte-TM/utopia_edgeservice) to consult the Edge Service repository.
 
 ## Web application
 A Java web application built in the Spring Boot framework is used to host the game. The Unity project is built in a WebGL format, which allows us to run it on a web page using an iframe. 
