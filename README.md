@@ -13,6 +13,7 @@ To load the game, you will need to install Unity Hub first. The download files c
 ### Important directories
 All editing of the game happens within the `Assets` folder. In there, you can find the following directories:
 - Art
+
 This folder contains all art that is used in the game, from animations, sprites (game objects) and tiles to create the world.
 
 ### Useful links
