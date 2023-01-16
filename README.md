@@ -1,9 +1,11 @@
 # Utopia 2.0
-Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. 
+Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. Click [here](https://utopia-utopiasite-kevinvandeputte-tm.cloud.okteto.net/) to start playing the game!
+
+![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
 Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest.
 
-![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
+![Metro](https://user-images.githubusercontent.com/74854941/212755668-511688ca-6d7e-4c9a-8a33-e5dd3e1bfc0e.png)
 
 Utopia is comprised of three main programs:
 - The game itself is made in the Unity game engine.
@@ -11,7 +13,7 @@ Utopia is comprised of three main programs:
 - A web application that hosts the game and allows some extra functionality for analytics and gathering feedback.
 
 ## Unity
-Utopia 2.0 is made in the Unity game engine. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for Isometric 2D development. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap).
+Utopia 2.0 is made in the Unity game engine as a WebGL project. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for Isometric 2D development. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap).
 
 ### Installation
 To load the game, you will need to install Unity Hub first. The download files can be found [here](https://unity.com/download). From within Unity Hub, you can intall the right version of Unity to run the application. Utopia is made in version `2021.3.14f1`. Visit the Unity [Download Archive](https://unity.com/releases/editor/archive) and download the correct version through Unity Hub. After the install is complete, you can safely run Utopia and explore the game.
@@ -20,7 +22,7 @@ To load the game, you will need to install Unity Hub first. The download files c
 All editing of the game happens within the `Assets` folder. In there, you can find the following directories:
 - Art
 
-This folder contains all art that is used in the game, from animations, sprites (game objects) and tiles to create the world.
+This folder contains all art that is used in the game, from animations, sprites (custom game objects) and tiles to create the world.
 
 - Audio
 
@@ -56,7 +58,7 @@ For documentation of the back-end we refer to the `edge-service`, where all info
 Click [here](https://github.com/KevinVandeputte-TM/utopia_edgeservice) to consult the Edge Service repository.
 
 ## Web application
-A Java web application built in the Spring Boot framework is used to host the game. The Unity project is built in a WebGL format, which allows us to run it on a web page using an iframe. 
+A Java web application built in the Spring Boot framework is used to host the game. The repository can be found [here](https://github.com/ValerieBecquart/project4website). The Unity project is built in a WebGL format, which allows us to run it on a web page using an iframe. 
 
 Besides hosting the game, the web application can also gather feedback from the user after playing the game. Different aspects of the game can be judged in a feedback form, and also a general score can be given.
 
