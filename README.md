@@ -1,4 +1,7 @@
 # Utopia 2.0
+Welcome to Utopia 2.0! In this repository, you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting the students get to know the educative programs within Thomas More.
+![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
+
 Utopia is comprised of three main sections:
 - The game itself is made in the Unity game engine
 - A microservices back-end takes care of all the data storage and processing
@@ -15,6 +18,26 @@ All editing of the game happens within the `Assets` folder. In there, you can fi
 - Art
 
 This folder contains all art that is used in the game, from animations, sprites (game objects) and tiles to create the world.
+
+- Audio
+
+Contains all audio used in the game.
+
+- Fonts
+
+All fonts used in the game are stored here.
+
+- Prefabs
+
+A prefab is used as a template for commonly used game objects that need similar layout and functionality. This can go from a simple menu button to a whole environment. Changing the prefab will change all game objects that implemented it.
+
+- Scenes
+
+A unity game is comprised of different scenes that are linked to each other. Every scene is a separate page in which the user can explore and interact with the game.
+
+- Scripts
+
+All functionality and logic is stored in C# scripts. These allow the programmer to fully control the behaviour of the game objects in the scene. Scripts are also used to interact with the micro-services backend that was built to support the game.
 
 ### Useful links
 A handful of tutorials were followed to get to know the Unity game engine. Below you can find some useful links that can help you get on your way with Unity.
