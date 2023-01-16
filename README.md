@@ -42,9 +42,9 @@ All functionality and logic is stored in C# scripts. These allow the programmer 
 
 ### Useful links
 A handful of tutorials were followed to get to know the Unity game engine. Below you can find some useful links that can help you get on your way with Unity.
--[Ruby's Adventure](https://learn.unity.com/project/ruby-s-2d-rpg)
 
-This tutorial is ideal for building experience in Unity for Isometric 2D development. Basic concepts are shown while building this game, leaving you with an overall understanding of the platform.
+-[Ruby's Adventure](https://learn.unity.com/project/ruby-s-2d-rpg)
+  - This tutorial is ideal for building experience in Unity for Isometric 2D development. Basic concepts are shown while building this game, leaving you with an overall understanding of the platform after you've finished it.
 
 
 
