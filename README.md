@@ -3,7 +3,7 @@ Welcome to Utopia 2.0! In this repository you can find the source code of team '
 
 ![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
-The core layout of Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest. At the start of the game, the student selects a field of interest, which then determines that starting location of their adventure. From then on, he or she can traverse the network and discover all educations that are offered by Thomas More.
+The core layout of Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest. At the start of the game, the student selects a field of interest, which then determines the starting location of their adventure. From then on, he or she can traverse the network and discover all educations that are offered by Thomas More.
 
 ![Metro](https://user-images.githubusercontent.com/74854941/212755668-511688ca-6d7e-4c9a-8a33-e5dd3e1bfc0e.png)
 
