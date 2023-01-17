@@ -45,7 +45,7 @@ A unity game is comprised of different scenes that are linked to each other. Eve
 All functionality and logic is stored in C# scripts. These allow the programmer to fully control the behaviour of the game objects in the scene. Scripts are also used to interact with the micro-services backend that was built to support the game. This means collecting and also writing data to the database.
 
 ### Useful links
-A handful of tutorials were followed to get to know the Unity game engine. Below you can find some useful links that can help you get on your way with Unity.
+A handful tutorials were followed to get to know the Unity game engine. Below you can find some useful links that can help you get on your way with Unity.
 
 - [Ruby's Adventure](https://learn.unity.com/project/ruby-s-2d-rpg)
   - This tutorial is ideal for building experience in Unity for Isometric 2D development. Basic concepts are shown while building this game, leaving you with an overall understanding of the platform after you've finished it.
