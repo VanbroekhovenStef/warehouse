@@ -1,16 +1,16 @@
 # Utopia 2.0
-Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. Click [here](https://utopia-utopiasite-kevinvandeputte-tm.cloud.okteto.net/) to start playing the game!
+Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. Click [here](https://utopia-utopiasite-kevinvandeputte-tm.cloud.okteto.net/) to try it out!
 
 ![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
-Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest.
+Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest. At the start of the game, the student selects a field of interest, which then determines that starting location. From then on, he or she can traverse the network and discover 
 
 ![Metro](https://user-images.githubusercontent.com/74854941/212755668-511688ca-6d7e-4c9a-8a33-e5dd3e1bfc0e.png)
 
-Utopia is comprised of three main programs:
-- The game itself is made in the Unity game engine.
-- A microservices back-end takes care of all the data storage and processing.
-- A web application that hosts the game and allows some extra functionality for analytics and gathering feedback.
+Further in this documentation, we will give a rundown of the composition of Utopia, and the different applications that it is made of. We can distinghuish three individual sections:
+1. The game itself is made in the Unity game engine.
+2. A microservices back-end takes care of all the data storage and processing.
+3. A web application that hosts the game and allows some extra functionality for analytics and gathering feedback.
 
 ## Unity
 Utopia 2.0 is made in the Unity game engine as a WebGL project. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for Isometric 2D development. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap).
