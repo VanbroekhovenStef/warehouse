@@ -64,4 +64,4 @@ A Java web application built in the Spring Boot framework is used to host the ga
 
 Besides hosting the game, the web application can also gather feedback from the user after playing the game. Different aspects of the game can be judged in a feedback form, and also a general score can be given.
 
-Lastly, the game gathers information about the user interactions while playing. This information is displayed using graphs made in Qlik sense. The graphs are loaded on a separate page `/analyse` using iframes. Data shown here can be useful to generate insights in the popularity of each education.
+Lastly, the game gathers information on how many visits were made at each station. This information is displayed using graphs made in Qlik sense. Feedback entered by the users is also displayed. The graphs are loaded on a separate page `/analyse` using iframes. Data shown here can be useful to generate insights in the popularity of each education. Feedback from the users can be used to further improve the game.
