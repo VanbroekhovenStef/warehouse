@@ -1,19 +1,19 @@
 # Utopia 2.0
-Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. Click [here](https://utopia-utopiasite-kevinvandeputte-tm.cloud.okteto.net/) to try it out!
+Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. Instead of creating a web application like other similar programs have done, we have decided to go all out and develop an actual game, with the goal of combining information with fun! Click [here](https://utopia-utopiasite-kevinvandeputte-tm.cloud.okteto.net/) to try it out!
 
 ![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
 
-Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest. At the start of the game, the student selects a field of interest, which then determines that starting location. From then on, he or she can traverse the network and discover 
+The core layout of Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest. At the start of the game, the student selects a field of interest, which then determines that starting location of their adventure. From then on, he or she can traverse the network and discover all educations that are offered by Thomas More.
 
 ![Metro](https://user-images.githubusercontent.com/74854941/212755668-511688ca-6d7e-4c9a-8a33-e5dd3e1bfc0e.png)
 
-Further in this documentation, we will give a rundown of the composition of Utopia, and the different applications that it is made of. We can distinghuish three individual sections:
+Further in this documentation, we will give a rundown of the composition of Utopia, and the different applications that it is made of. We can distinghuish three  sections:
 1. The game itself is made in the Unity game engine.
 2. A microservices back-end takes care of all the data storage and processing.
 3. A web application that hosts the game and allows some extra functionality for analytics and gathering feedback.
 
 ## Unity
-Utopia 2.0 is made in the Unity game engine as a WebGL project. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for Isometric 2D development. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap).
+Utopia 2.0 is made in the Unity game engine. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for `Isometric 2D` development to build our world. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap). Further, the project is built as a `WebGL`, which allows us to host it on a web application. This increases accessibility since all students in secondary education have access to a laptop at school.
 
 ### Installation
 To load the game, you will need to install Unity Hub first. The download files can be found [here](https://unity.com/download). From within Unity Hub, you can intall the right version of Unity to run the application. Utopia is made in version `2021.3.14f1`. Visit the Unity [Download Archive](https://unity.com/releases/editor/archive) and download the correct version through Unity Hub. After the install is complete, you can safely run Utopia and explore the game.
@@ -49,8 +49,10 @@ A handful of tutorials were followed to get to know the Unity game engine. Below
 
 - [Ruby's Adventure](https://learn.unity.com/project/ruby-s-2d-rpg)
   - This tutorial is ideal for building experience in Unity for Isometric 2D development. Basic concepts are shown while building this game, leaving you with an overall understanding of the platform after you've finished it.
-- Other
-
+- [How to scale Unity UI objects for every screen - Unity UI tutorial](https://www.youtube.com/watch?v=QnT-2KxVvyk&ab_channel=CocoCode)
+- [How to mak a menu in Unity](https://www.youtube.com/watch?v=lF26yGJbsQk&ab_channel=Tarodev)
+- [How to make AWESOME Scene Transitions in Unity!](https://www.youtube.com/watch?v=CE9VOZivb3I&t=836s&ab_channel=Brackeys)
+- [Making a WORLD MAP for Super Mario Maker 2 in Unity](https://www.youtube.com/watch?v=bhODmOh40Ks&ab_channel=PolyMars)
 
 ## Back-end
 For documentation of the back-end we refer to the `edge-service`, where all information about the microservice architecture is gathered. Information on the different services used, how to run the services locally and ways of testing are mentioned there.
@@ -58,7 +60,7 @@ For documentation of the back-end we refer to the `edge-service`, where all info
 Click [here](https://github.com/KevinVandeputte-TM/utopia_edgeservice) to consult the Edge Service repository.
 
 ## Web application
-A Java web application built in the Spring Boot framework is used to host the game. The repository can be found [here](https://github.com/ValerieBecquart/project4website). The Unity project is built in a WebGL format, which allows us to run it on a web page using an iframe. 
+A Java web application built in the Spring Boot framework is used to host the game. The repository can be found [here](https://github.com/ValerieBecquart/project4website). The Unity project is built in a WebGL format, which allows us to run it on this web application using an iframe. 
 
 Besides hosting the game, the web application can also gather feedback from the user after playing the game. Different aspects of the game can be judged in a feedback form, and also a general score can be given.
 
