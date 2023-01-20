@@ -1,67 +1,107 @@
-# Utopia 2.0
-Welcome to Utopia 2.0! In this repository you can find the source code of team 'Weboos' for the Proof of Concept. We present you with a new and innovative way of letting students discover the educative programs within Thomas More. Instead of creating a web application like other similar programs have done, we have decided to go all out and develop an actual game, with the goal of combining information with fun! Click [here](https://utopia-utopiasite-kevinvandeputte-tm.cloud.okteto.net/) to try it out!
+# Proof of Concept - Utopia 2.0
+## Backend setup
 
-![Utopia](https://user-images.githubusercontent.com/74854941/212747487-a3783889-fae9-4cdf-b17f-36f2a3429990.png)
+This is the repository for the edge microservice for the **UTOPIA 2.0** project.
 
-The core layout of Utopia is represented as an underground network, in which the stations each represent an education. The individual lines can be seen as a collection of educations that follow the same kind of interest. At the start of the game, the student selects a field of interest, which then determines the starting location of their adventure. From then on, he or she can traverse the network and discover all educations that are offered by Thomas More.
+This architecture looks like:
+![Architecture](https://user-images.githubusercontent.com/74854941/212564316-a6d3f4fb-cc44-4343-9acc-cf29e612ec1b.png)
 
-![Metro](https://user-images.githubusercontent.com/74854941/212755668-511688ca-6d7e-4c9a-8a33-e5dd3e1bfc0e.png)
+## Description
+The application is a POC for a new explorative tool/game that helps students discovering different bachelor degree options.
 
-Further in this documentation, we will give a rundown of the composition of Utopia, and the different applications that it is made of. We can distinghuish three  sections:
-1. The game itself is made in the Unity game engine.
-2. A microservices back-end takes care of all the data storage and processing.
-3. A web application that hosts the game and allows some extra functionality for analytics and gathering feedback.
+The application was created in `Unity` and is a 2D isometric game. The repo for the application can be found [here](https://github.com/KevinVandeputte-TM/utopia). Game statistics that are generated when playing the game can be consulted on a qlik sense dashboard. 
 
-## Unity
-Utopia 2.0 is made in the Unity game engine. This platform allows the programmer to use lots of features and packages that help in creating a game, which normal web development platforms do not offer. We used a template for `Isometric 2D` development to build our world. More info on this template can be found [here](https://blog.unity.com/technology/isometric-2d-environments-with-tilemap). Further, the project is built as a `WebGL`, which allows us to host it on a web application. This increases accessibility since all students in secondary education have access to a laptop at school.
+The application will send requests to the `edge-service` which will connect to 3 lower microservices `game-service`, `userservice` and `analytics-service` to request information which it then will process and combine into a single response to the user. Besides the `edge-service`, a service dedicated for collecting feedback will be operating independently as this is unrelated to the game itself.
 
-### Installation
-To load the game, you will need to install Unity Hub first. The download files can be found [here](https://unity.com/download). From within Unity Hub, you can intall the right version of Unity to run the application. Utopia is made in version `2021.3.14f1`. Visit the Unity [Download Archive](https://unity.com/releases/editor/archive) and download the correct version through Unity Hub. After the install is complete, you can safely run Utopia and explore the game.
+### Repo's (Click the repo name)
+- [EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice):
 
-### Important directories
-All editing of the game happens within the `Assets` folder. In there, you can find the following directories:
-- Art
+  The service is a Spring Boot REST service with `SwaggerUI` implementation. There is a `Github Action` in place to establish a CI/CD pipeline that checks compilation and then builds. Finally, the `Docker Container` is uploaded to `Docker Hub`.
 
-This folder contains all art that is used in the game, from animations, sprites (custom game objects) and tiles to create the world.
 
-- Audio
+- [GAME-SERVICE](https://github.com/KevinVandeputte-TM/utopia_game-service):
 
-Contains all audio used in the game.
+  The service is a Spring Boot REST Microservice which connects to a Dockerized `MariaDB` database. The service is responsible for providing the game with all necessary game information. `Github Actions` are used to establish a CI/CD pipeline for compiling, testing, and building the container. Finally, the `Docker Container` is uploaded to `Docker Hub`.
 
-- Fonts
 
-All fonts used in the game are stored here.
+- [USER-SERVICE](https://github.com/KevinVandeputte-TM/utopia_userservice):
 
-- Prefabs
+  The service is a Spring Boot REST Microservice which connects to a Dockerized `MongoDB` database. The service is responsible for providing the game with all necessary user information. `Github Actions` are used to establish a CI/CD pipeline for compiling, testing, and building the container. Finally, the `Docker Container` is uploaded to `Docker Hub`.
 
-A prefab is used as a template for commonly used game objects that need similar layout and functionality. This can go from a simple menu button to a whole environment. Changing the prefab will change all game objects that implemented it.
 
-- Scenes
+- [ANALYTIC-SERVICE](https://github.com/KevinVandeputte-TM/utopia_analytic-service):
 
-A unity game is comprised of different scenes that are linked to each other. Every scene is a separate page in which the user can explore and interact with the game.
+  The service is a Spring Boot REST Microservice which connects to a Dockerized `MongoDB` database. The service is responsible for providing the game with analytics data of visits per station. `Github Actions` are used to establish a CI/CD pipeline for compiling, testing, and building the container. Finally, the `Docker Container` is uploaded to `Docker Hub`.
+  
+- [FEEDBACK-SERVICE](https://github.com/KevinVandeputte-TM/utopia_feedback-service):
 
-- Scripts
+  The service is a Spring Boot REST service which connects to a Dockerized `MongoDB` database. The service is responsible for collecting feedback from the users after playing the game. `Github Actions` are used to establish a CI/CD pipeline for compiling, testing, and building the container. Finally, the `Docker Container` is uploaded to `Docker Hub`.
 
-All functionality and logic is stored in C# scripts. These allow the programmer to fully control the behaviour of the game objects in the scene. Scripts are also used to interact with the micro-services backend that was built to support the game. This means collecting and also writing data to the database.
+- [DEPLOYMENT](https://github.com/KevinVandeputte-TM/utopia_microservices-docker-compose):
 
-### Useful links
-A handful tutorials were followed to get to know the Unity game engine. Below you can find some useful links that can help you get on your way with Unity.
+  The backend was deployed on `Okteto`. Therefore a seperate repository was created containing a single `Docker compose` file which gives the instructions to pull the necessary images of `docker hub` and set up all microservices and underlying databases.
 
-- [Ruby's Adventure](https://learn.unity.com/project/ruby-s-2d-rpg)
-  - This tutorial is ideal for building experience in Unity for Isometric 2D development. Basic concepts are shown while building this game, leaving you with an overall understanding of the platform after you've finished it.
-- [How to scale Unity UI objects for every screen - Unity UI tutorial](https://www.youtube.com/watch?v=QnT-2KxVvyk&ab_channel=CocoCode)
-- [How to mak a menu in Unity](https://www.youtube.com/watch?v=lF26yGJbsQk&ab_channel=Tarodev)
-- [How to make AWESOME Scene Transitions in Unity!](https://www.youtube.com/watch?v=CE9VOZivb3I&t=836s&ab_channel=Brackeys)
-- [Making a WORLD MAP for Super Mario Maker 2 in Unity](https://www.youtube.com/watch?v=bhODmOh40Ks&ab_channel=PolyMars)
+# Running the example locally
 
-## Back-end
-For documentation of the back-end we refer to the `edge-service`, where all information about the microservice architecture is gathered. Information on the different services used, how to run the services locally and ways of testing are mentioned there.
+The lower services each connect to a Dockerized database. These databases need to be up and running before the project can be ran locally.
 
-Click [here](https://github.com/KevinVandeputte-TM/utopia_edgeservice) to consult the Edge Service repository.
+Set up the Docker Container with the MariaDB database:
+``` pwsh
+docker run --name stations -p 3306:3306 -e MARIADB_ROOT_PASSWORD=abc123 -e MARIADB_USER=user -e MARIADB_PASSWORD=user123 -d mariadb
+```
 
-## Web application
-A Java web application built in the Spring Boot framework is used to host the game. The repository can be found [here](https://github.com/ValerieBecquart/project4website). The Unity project is built in a WebGL format, which allows us to run it on this web application using an iframe. 
+Set up the Docker Container with the MongoDB database:
+``` pwsh
+docker run --name users-mongodb -p 27017:27017 -d mongo 
+```
 
-Besides hosting the game, the web application can also gather feedback from the user after playing the game. Different aspects of the game can be judged in a feedback form, and also a general score can be given.
+Set up the Docker container with the second MongoDB database:
+``` pwsh
+docker run --name analytics-mongodb -p 27018:27018 -d mongo 
+```
 
-Lastly, the game gathers information on how many visits were made at each station. This information is displayed using graphs made in Qlik sense. Feedback entered by the users is also displayed. The graphs are loaded on a separate page `/analyse` using iframes. Data shown here can be useful to generate insights in the popularity of each education. Feedback from the users can be used to further improve the game.
+Services connecting to MongoDB need some additional code in `application.properties` to connect to the dockerized MongoDB database. Below you can find an example for the `user-service`:
+``` pwsh
+spring.data.mongodb.database=users-mongodb
+spring.data.mongodb.uri=mongodb://localhost/users-mongodb
+```
+
+Once this is done you can start the `game-service`, `user-service` and `analytics-service` applications. These applications include a method to fill up the databases with dummy information for testing purposes.
+
+Before running the `edge-service` you should know that it, right now, is set up to be deployed. For you to run the project locally you need to go into the `application.properties` file and change following lines of code:
+``` pwsh
+    userservice.baseurl = ${USER_SERVICE_BASEURL:192.168.99.100:8052}
+    gameservice.baseurl = ${GAME_SERVICE_BASEURL:192.168.99.100:8051}
+    analytics-service.baseurl = ${ANALYTIC_SERVICE_BASEURL: 192.168.99.100:8054}
+```
+into:
+``` pwsh
+userservice.baseurl = ${USER_SERVICE_BASEURL:localhost:8052}
+gameservice.baseurl = ${GAME_SERVICE_BASEURL:localhost:8051}
+analytic-service.baseurl = ${ANALYTIC_SERVICE_BASEURL: localhost:8054}
+
+```
+
+After this adjustment you can start the `edge-service` application.
+
+Now you should be able to go to:
+``` pwsh
+http://localhost:8053/highscores
+```
+And you should see a similar output:
+
+![localhost](https://user-images.githubusercontent.com/58487061/210269210-9888dbc5-2f13-4348-8256-a6a2cd4dbd22.png)
+
+Lastly, the `feedback-service` can be started in a similar way like above. Set up the Docker container with the third MongoDB database:
+``` pwsh
+docker run --name feedback-mongodb -p 27019:27019 -d mongo
+```
+Add the connection info to `application.properties` and now you can run the service locally.
+
+# Testing
+
+- [SwaggerUI](https://swagger.io/tools/swagger-ui/)
+
+The service has `SwaggerUI` implemented for interactively testing and exposing the API. After setup the `SwaggerUI` will be running locally on: http://localhost:8053/swagger-ui.html
+
+![swagger](https://user-images.githubusercontent.com/58487061/210269308-b9232468-ade5-4180-bbbd-b2c9717880b1.png)
