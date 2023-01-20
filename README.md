@@ -70,16 +70,15 @@ Once this is done you can start the `game-service`, `user-service` and `analytic
 
 Before running the `edge-service` you should know that it, right now, is set up to be deployed. For you to run the project locally you need to go into the `application.properties` file and change following lines of code:
 ``` pwsh
-    userservice.baseurl = ${USER_SERVICE_BASEURL:192.168.99.100:8052}
-    gameservice.baseurl = ${GAME_SERVICE_BASEURL:192.168.99.100:8051}
-    analytics-service.baseurl = ${ANALYTIC_SERVICE_BASEURL: 192.168.99.100:8054}
+userservice.baseurl = ${USER_SERVICE_BASEURL:192.168.99.100:8052}
+gameservice.baseurl = ${GAME_SERVICE_BASEURL:192.168.99.100:8051}
+analytics-service.baseurl = ${ANALYTIC_SERVICE_BASEURL: 192.168.99.100:8054}
 ```
 into:
 ``` pwsh
 userservice.baseurl = ${USER_SERVICE_BASEURL:localhost:8052}
 gameservice.baseurl = ${GAME_SERVICE_BASEURL:localhost:8051}
 analytic-service.baseurl = ${ANALYTIC_SERVICE_BASEURL: localhost:8054}
-
 ```
 
 After this adjustment you can start the `edge-service` application.
