@@ -41,7 +41,7 @@ The application will send requests to the `edge-service` which will connect to 3
 
   The backend was deployed on `Okteto`. Therefore a seperate repository was created containing a single `Docker compose` file which gives the instructions to pull the necessary images of `docker hub` and set up all microservices and underlying databases.
 
-# Running the example locally
+## Running the example locally
 
 The lower services each connect to a Dockerized database. These databases need to be up and running before the project can be ran locally.
 
@@ -98,7 +98,7 @@ docker run --name feedback-mongodb -p 27019:27019 -d mongo
 ```
 Add the connection info to `application.properties` and now you can run the service locally.
 
-# Testing
+## Testing
 
 - [SwaggerUI](https://swagger.io/tools/swagger-ui/)
 
