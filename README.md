@@ -1,17 +1,17 @@
 # Proof of Concept - Utopia 2.0
 ## Backend setup
 
-This is the repository for the edge microservice for the **UTOPIA 2.0** project.
+This is the repository for the edge microservice for the **UTOPIA 2.0** project. Here you can find info on the whole backend architecture and how it interacts with the game.
 
-This architecture looks like:
+A visual representation of the architecture is shown here:
 ![Architecture](https://user-images.githubusercontent.com/74854941/212564316-a6d3f4fb-cc44-4343-9acc-cf29e612ec1b.png)
 
 ## Description
 The application is a POC for a new explorative tool/game that helps students discovering different bachelor degree options.
 
-The application was created in `Unity` and is a 2D isometric game. The repo for the application can be found [here](https://github.com/KevinVandeputte-TM/utopia). Game statistics that are generated when playing the game can be consulted on a qlik sense dashboard. 
+The application was created in `Unity` and is a 2D isometric game. The repo for the application can be found [here](https://github.com/KevinVandeputte-TM/utopia). Game statistics that are generated when playing the game can be consulted on a qlik sense dashboard. More info on this can be found [here](https://github.com/ValerieBecquart/project4website).
 
-The application will send requests to the `edge-service` which will connect to 3 lower microservices `game-service`, `userservice` and `analytics-service` to request information which it then will process and combine into a single response to the user. Besides the `edge-service`, a service dedicated for collecting feedback will be operating independently as this is unrelated to the game itself.
+The application will send requests to the `edge-service` which will connect to 3 lower microservices `game-service`, `userservice` and `analytics-service` to request information which it will then process and combine into a single response to the user. Besides the `edge-service`, a separate service dedicated for collecting feedback will be operating independently as this is unrelated to the game itself.
 
 ### Repo's (Click the repo name)
 - [EDGE-SERVICE](https://github.com/KevinVandeputte-TM/utopia_edgeservice):
